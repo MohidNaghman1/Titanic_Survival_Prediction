@@ -3,7 +3,7 @@ import pandas as pd
 import pickle
 
 # Load the trained model
-with open('titanic_model.pkl', 'rb') as file:
+with open('/mount/src/titanic_survival_prediction/titanic_model.pkl', 'rb') as file:
     model = pickle.load(file)
 
 # Function to make predictions
