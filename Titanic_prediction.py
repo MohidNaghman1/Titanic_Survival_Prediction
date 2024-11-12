@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import pickle
+import os
 
 # Load the trained model
 # with open('/mount/src/titanic_survival_prediction/titanic_model.pkl', 'rb') as file:
