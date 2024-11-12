@@ -3,8 +3,20 @@ import pandas as pd
 import pickle
 
 # Load the trained model
-with open('/mount/src/titanic_survival_prediction/titanic_model.pkl', 'rb') as file:
-    model = pickle.load(file)
+# with open('/mount/src/titanic_survival_prediction/titanic_model.pkl', 'rb') as file:
+#     model = pickle.load(file)
+
+# Load the trained model with error handling
+model_path = '/mount/src/titanic_survival_prediction/titanic_model.pkl'
+
+if not os.path.exists(model_path):
+    st.error("Model file not found. Please check the file path.")
+else:
+    with open(model_path, 'rb') as file:
+        try:
+            model = pickle.load(file)
+        except Exception as e:
+            st.error(f"An error occurred while loading the model: {e}")
 
 # Function to make predictions
 def make_prediction(input_data):
